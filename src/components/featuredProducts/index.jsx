@@ -17,7 +17,7 @@ const FeaturedProducts = ({addToCart, fp}) => {
     // const data = featuredProducts;
 
     const renderSlides = () => fp.map((fp) => (
-        <div className="block md:w-[40%] 4xs:w-full h-[300px] border-4 shadow-lg ">
+        <div className="block md:w-[40%] 4xs:w-full h-[300px] border-4 shadow-lg " key={fp.id}>
             <div className="block w-auto h-[50%] bg-teal-500">
                 <img className="w-[100%] h-[100%] object-contain" src={fp.image} alt="Sunset in the mountains" />
             </div>
@@ -25,8 +25,8 @@ const FeaturedProducts = ({addToCart, fp}) => {
                 <div className="font-bold text-xl mb-2">{fp.title}</div>
                 <div className="text-red-500">${fp.price}</div>
                 <div className=" flex flex-row mt-4">
-                    <FavoriteBorderIcon className="mr-4" onClick={() => console.log("Hello")} />
-                    <ShoppingCartOutlinedIcon className="" onClick={() => addToCart(fp)} />
+                    <FavoriteBorderIcon className="mr-4 cursor-pointer" onClick={() => console.log("Hello")} />
+                    <ShoppingCartOutlinedIcon className="cursor-pointer" onClick={() => addToCart(fp)} />
                 </div>
             </div>
         </div>

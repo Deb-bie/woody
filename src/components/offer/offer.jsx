@@ -2,7 +2,7 @@ import React from 'react'
 
 const Offer = ({item}) => {
   return (
-    <div className="flex flex-col flex-wrap justify-center items-center">
+    <div className="flex flex-col flex-wrap justify-center items-center" key={item.id}>
         <div className=" flex flex-col  justify-center items-center w-[220px] h-[200px] border-4 shadow-lg">
             <div className="flex">{item.label}</div>
             <br />

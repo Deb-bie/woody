@@ -1,5 +1,4 @@
 import React from 'react'
-import MyOh from '../featuredproduct';
 import FeaturedProducts from '../featuredProducts'
 import LatestProducts from '../latestProducts'
 import Offers from '../offer';
@@ -22,7 +21,6 @@ const Featured = ({addToCart, fp}) => {
 
         <Trial />
         <br />
-
 
         <Offers />
     </div>

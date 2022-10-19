@@ -13,27 +13,17 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 
 import LogoComponent from '../logo';
-import NavItems from '../navItems';
-
 
 const Nav = styled.div`
     ${tw`
-        flex justify-center sticky items-center max-w-full w-full
-        h-[10vh]
-        sm:h-[10vh]
-        xl:h-20
-        // bg-yellow-500
-        // xl:h-20 xl:py-8
-        // xl:pt-4
+        flex justify-center sticky items-center max-w-full w-full h-[10vh] sm:h-[10vh] xl:h-20
     `};
 `;
 
 const NavContainer = styled.div`
     ${tw`
         w-full flex flex-row justify-around items-center flex-nowrap
-        h-16
-        xl:h-20
-        // p-6 
+        h-16 xl:h-20
     `};
 `;
 
@@ -51,30 +41,19 @@ const ListContainer = styled.div`
 
 const NavItem = styled.li`
     ${tw`
-        flex cursor-pointer
-        text-sm
-        2xl:text-2xl
+        flex cursor-pointer text-sm 2xl:text-2xl
     `};
 
-    ${({ menu }) =>
-    menu &&
-    css`
+    ${({ menu }) => menu && css`
       ${tw`
-      text-white
-      text-xl
-      mb-3
-      focus:text-white
+        text-white text-xl mb-3 focus:text-white
     `};
-        `};
+    `};
 `;
-
-
 
 const RightContainer = styled.div`
     ${tw`
-        flex flex-row justify-evenly flex-nowrap
-        lg:mr-24
-        mr-0
+        flex flex-row justify-evenly flex-nowrap lg:mr-24 mr-0
     `};
 `;
 
@@ -109,7 +88,7 @@ const Navbar = ({cartItem}) => {
 
     const isMobile = useMediaQuery({ maxWidth: SCREENS.md});
 
-    let activeStyle = {
+    const activeStyle = {
         color: "red",
     };
 
@@ -120,7 +99,7 @@ const Navbar = ({cartItem}) => {
                 <NavContainer>
                     <RightContainer>
                         <NavbarIcons>
-                            <Link to="favorite">
+                            <Link to=" favorite">
                                 <FavoritesIcon className="px-4 transform transition duration-500 hover:scale-125 hover:text-red-500">
                                     <Badge color="secondary" badgeContent={0}>
                                         <FavoriteBorderIcon />
@@ -128,7 +107,7 @@ const Navbar = ({cartItem}) => {
                                 </FavoritesIcon>
                             </Link>
 
-                            <Link to="cart">
+                            <Link to=" cart">
                                 <CartIcon className="px-4 transform transition duration-500 hover:scale-125 hover:text-red-500">
                                     <Badge color="secondary" badgeContent={0}>
                                         <ShoppingCartOutlinedIcon />
@@ -139,10 +118,6 @@ const Navbar = ({cartItem}) => {
                     </RightContainer>
 
                     <LogoComponent />
-                    {/* <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div> */}
 
                 <Menu right styles={menuStyles}>
                 <ListContainer>
@@ -151,31 +126,31 @@ const Navbar = ({cartItem}) => {
                     </NavItem>
 
                     <NavItem menu>
-                        <Link to="/chairs">Chairs</Link>
+                        <Link to="/%chairs">Chairs</Link>
                     </NavItem>
 
                     <NavItem menu>
-                        <Link to="/ tables">Tables</Link>
+                        <Link to="/%tables">Tables</Link>
                     </NavItem>
                     
                     <NavItem menu>
-                        <Link to="/ couches">Couches</Link>
+                        <Link to="/%couches">Couches</Link>
                     </NavItem>
                     
                     <NavItem menu>
-                        <Link to="/ beds">Beds</Link>
+                        <Link to="/%my-beds">Beds</Link>
                     </NavItem>
                     
                     <NavItem menu>
-                        <Link to="/ dining-sets">Dining Sets</Link>
+                        <Link to="/%dining-sets">Dining Sets</Link>
                     </NavItem>
                     
                     <NavItem menu>
-                        <Link to="/login">Login</Link>
+                        <Link to="/%login">Login</Link>
                     </NavItem>
                     
                     <NavItem menu>
-                        <Link to="/register">Register</Link>
+                        <Link to="/%register">Register</Link>
                     </NavItem>
                 </ListContainer>
             </Menu>
@@ -196,37 +171,42 @@ const Navbar = ({cartItem}) => {
             <MainContainer>
                 <ListContainer>
                     <NavItem className="">
-                        <NavLink to="/" style={({ isActive }) => isActive ? activeStyle : undefined} className="px-4 transform transition duration-500 hover:scale-125 hover:text-red-500">
+                        <NavLink to="/"
+                         style={({ isActive }) => isActive ? activeStyle : undefined} 
+                         className="px-4 transform transition duration-500 hover:scale-125 hover:text-red-500"
+                         >
                             Home
                         </NavLink>
                     </NavItem>
 
                     <NavItem className="">
-                        <NavLink to="/chairs" style={({ isActive }) => isActive ? activeStyle : undefined} className="px-4 transform transition duration-500 hover:scale-125 hover:text-red-500">
+                        <NavLink to="/%chairs" 
+                        style={({ isActive }) => isActive ? activeStyle : undefined} className="px-4 transform transition duration-500 hover:scale-125 hover:text-red-500"
+                        >
                             Chairs
                         </NavLink>
                     </NavItem>
 
                     <NavItem className="">
-                        <NavLink to="/ tables" style={({ isActive }) => isActive ? activeStyle : undefined} className="px-4 transform transition duration-500 hover:scale-125 hover:text-red-500">
+                        <NavLink to="%tables" style={({ isActive }) => isActive ? activeStyle : undefined} className="px-4 transform transition duration-500 hover:scale-125 hover:text-red-500">
                             Tables
                         </NavLink>
                     </NavItem>
 
                     <NavItem className="">
-                        <NavLink to="/ couches" style={({ isActive }) => isActive ? activeStyle : undefined} className="px-4 transform transition duration-500 hover:scale-125 hover:text-red-500">
+                        <NavLink to="%couches" style={({ isActive }) => isActive ? activeStyle : undefined} className="px-4 transform transition duration-500 hover:scale-125 hover:text-red-500">
                             Couches
                         </NavLink>
                     </NavItem>
 
                     <NavItem className="">
-                        <NavLink to="/ beds" style={({ isActive }) => isActive ? activeStyle : undefined} className="px-4 transform transition duration-500 hover:scale-125 hover:text-red-500">
+                        <NavLink to="%my-beds" style={({ isActive }) => isActive ? activeStyle : undefined} className="px-4 transform transition duration-500 hover:scale-125 hover:text-red-500">
                             Beds
                         </NavLink>
                     </NavItem>
 
                     <NavItem className="">
-                        <NavLink to="/ dining-sets" style={({ isActive }) => isActive ? activeStyle : undefined} className="px-4 transform transition duration-500 hover:scale-125 hover:text-red-500">
+                        <NavLink to="%dining-sets" style={({ isActive }) => isActive ? activeStyle : undefined} className="px-4 transform transition duration-500 hover:scale-125 hover:text-red-500">
                             Dining Sets
                         </NavLink>
                     </NavItem>
@@ -236,21 +216,21 @@ const Navbar = ({cartItem}) => {
 
             <RightContainer>
                 <NavbarIcons>
-                    <Link to="favorite">
-                        <FavoritesIcon className="px-4 transform transition duration-500 hover:scale-125 hover:text-red-500">
+                    <NavLink to=" favorite" style={({ isActive }) => isActive ? activeStyle : undefined} className="px-4 transform transition duration-500 hover:scale-125 hover:text-red-500">
+                        <FavoritesIcon>
                             <Badge color="secondary" badgeContent={1}>
                                 <FavoriteBorderIcon />
                             </Badge>
                         </FavoritesIcon>
-                    </Link>
+                    </NavLink>
 
-                    <Link to="cart">
-                        <CartIcon className="px-4 transform transition duration-500 hover:scale-125 hover:text-red-500">
+                    <NavLink to=" cart" style={({ isActive }) => isActive ? activeStyle : undefined} className="px-4 transform transition duration-500 hover:scale-125 hover:text-red-500">
+                        <CartIcon>
                             <Badge color="secondary" badgeContent={cartItem.length === 0 ? 0 : cartItem.length}>
                                 <ShoppingCartOutlinedIcon />
                             </Badge>
                         </CartIcon>
-                    </Link>
+                    </NavLink>
 
                     <div className="group relative">
                         <PersonIcon className="px-4 transform transition duration-500 hover:scale-125 hover:text-red-500">
@@ -260,13 +240,13 @@ const Navbar = ({cartItem}) => {
                         </PersonIcon>
 
                         <ul className="rounded absolute hidden text-gray-700 pt-8 group-hover:block w-32">
-                            <Link to="login">
+                            <Link to="%login">
                                 <li className="bg-gray-200 hover:bg-gray-400 py-1 px-4 cursor-pointer">
                                     Login
                                 </li>
                             </Link>
 
-                            <Link to="register">
+                            <Link to="%register">
                                 <li className="bg-gray-200 hover:bg-gray-400 py-1 px-4 cursor-pointer">
                                     Register
                                 </li>
